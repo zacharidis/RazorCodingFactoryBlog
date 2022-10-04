@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorCodingFactoryBlog.Data;
+using RazorCodingFactoryBlog.Models.Domain;
 using RazorCodingFactoryBlog.Models.ViewModels;
 
 namespace RazorCodingFactoryBlog.Pages.Admin.Blogs
@@ -27,7 +28,22 @@ namespace RazorCodingFactoryBlog.Pages.Admin.Blogs
         public void OnPost()
         {
 
-           
+            var blogPost = new BlogPost()
+            {
+                Heading = AddBlogPostRequest.Heading,
+                PageTitle = AddBlogPostRequest.PageTitle,
+                Content = AddBlogPostRequest.Content,
+                ShortDescription = AddBlogPostRequest.ShortDescription,
+                FeaturedImageUrl = AddBlogPostRequest.FeaturedImageUrl,
+                UrlHandle = AddBlogPostRequest.UrlHandle,
+                PulishDate = AddBlogPostRequest.PulishDate,
+                Author = AddBlogPostRequest.Author,
+                Visible = AddBlogPostRequest.Visible
+            };
+
+            rCFBDbContext.BlogPosts.Add(blogPost);
+            rCFBDbContext.SaveChanges();
+
 
 
 
