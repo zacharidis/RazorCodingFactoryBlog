@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using RazorCodingFactoryBlog.Data;
+
 namespace RazorCodingFactoryBlog
 {
     public class Program
@@ -8,6 +11,14 @@ namespace RazorCodingFactoryBlog
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+
+
+            //dbContext
+
+            builder.Services.AddDbContext<RCFBDbContext>(options =>
+            options.UseSqlServer(
+                builder.Configuration.GetConnectionString("CFBDbConnectionString")));
+            
 
             var app = builder.Build();
 
