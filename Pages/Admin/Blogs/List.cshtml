@@ -2,3 +2,49 @@
 @model RazorCodingFactoryBlog.Pages.Admin.Blogs.ListModel
 @{
 }
+
+<div class="bg-secondary bg-opacity-10 mb-5">
+
+    <div class="container">
+
+        <h1> Blog Post List :  </h1>
+
+    </div>
+
+</div>
+
+<div class="container">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Heading</td>
+                <th>Short Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach(var blogPost in Model.BlogPosts){
+
+                   <tr>
+                       <td>@blogPost.Id</td>
+                       <td>@blogPost.Heading</td>
+                       <td>@blogPost.ShortDescription</td>
+
+
+                   </tr>
+
+
+            }
+
+
+
+        </tbody>
+
+
+
+    </table>
+
+
+</div>
