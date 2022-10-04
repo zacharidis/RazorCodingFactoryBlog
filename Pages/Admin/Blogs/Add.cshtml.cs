@@ -25,7 +25,7 @@ namespace RazorCodingFactoryBlog.Pages.Admin.Blogs
         }
 
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
 
             var blogPost = new BlogPost()
@@ -44,7 +44,7 @@ namespace RazorCodingFactoryBlog.Pages.Admin.Blogs
             rCFBDbContext.BlogPosts.Add(blogPost);
             rCFBDbContext.SaveChanges();
 
-
+            return RedirectToPage("/admin/blogs/list");
 
 
 
